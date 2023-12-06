@@ -4,14 +4,23 @@
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import pluginId from '../../pluginId';
+import { propmt } from '../../services/api';
 
 const HomePage = () => {
+  const [text, setText] = useState('')
+
+  async function handlePrintPrompt() {
+    const result = await propmt({ content: text })
+    console.log(result)
+  }
+
   return (
     <div>
-      <h1>{pluginId}&apos;s HomePage</h1>
-      <p>Happy coding</p>
+      <h1>IMAGINE</h1>
+      <input type='text' value={text} onChange={e => setText(e.target.value)}/>
+      <button onClick={handlePrintPrompt}>Print</button>
     </div>
   );
 };

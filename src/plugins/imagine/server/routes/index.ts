@@ -7,4 +7,12 @@ export default [
       policies: [],
     },
   },
+  {
+    method: 'POST',
+    path: '/ask',
+    handler: 'myController.ask',
+    config: {
+      policies: [],
+    },
+  },
 ];

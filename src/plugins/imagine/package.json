@@ -11,6 +11,7 @@
     "@strapi/design-system": "^1.6.3",
     "@strapi/helper-plugin": "^4.6.0",
     "@strapi/icons": "^1.6.3",
+    "openai": "^4.20.1",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {

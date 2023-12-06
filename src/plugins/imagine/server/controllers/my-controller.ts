@@ -7,4 +7,7 @@ export default ({ strapi }: { strapi: Strapi }) => ({
       .service('myService')
       .getWelcomeMessage();
   },
+  ask(ctx) {
+    return ctx.body
+  }
 });
