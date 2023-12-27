@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "teste": {
+      "type": "string"
+    },
+    "GPT": {
+      "type": "customField",
+      "customField": "plugin::imagine.imagine"
+    }
+  }
+}

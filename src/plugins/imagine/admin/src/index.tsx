@@ -22,12 +22,31 @@ export default {
         return component;
       },
       permissions: [
-        // Uncomment to set the permissions of the plugin here
-        // {
-        //   action: '', // the action name should be plugin::plugin-name.actionType
-        //   subject: null,
-        // },
       ],
+    });
+    app.customFields.register({
+      name: "imagine",
+      pluginId: "imagine",
+      plugin: "imagine",  // the custom field is created by a color-picker plugin
+      type: "string",
+      intlLabel: {
+        id: `${pluginId}.plugin.name`,
+        defaultMessage: name,
+      },
+      intlDescription: {
+        id: "color-picker.color.description",
+        defaultMessage: "Select any color",
+      },
+      icon: PluginIcon, // don't forget to create/import your icon component
+      components: {
+        Input: async () =>
+          import(
+            /* webpackChunkName: "input-component" */ "./pages/HomePage/"
+          ),
+      },
+      options: {
+        // declare options here
+      },
     });
     const plugin = {
       id: pluginId,

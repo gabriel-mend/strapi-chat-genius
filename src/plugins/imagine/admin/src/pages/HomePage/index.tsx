@@ -10,11 +10,11 @@ import pluginId from '../../pluginId';
 import OpenAI from "openai";
 
 const HomePage = () => {
-
+  const [response, setResponse] = useState('')
 
 
   const openai = new OpenAI({
-    apiKey: '',
+    apiKey: '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',
     dangerouslyAllowBrowser: true
   });
 
@@ -24,7 +24,7 @@ const HomePage = () => {
       model: "gpt-3.5-turbo",
     });
 
-    return completion.choices[0]
+    setResponse(completion.choices[0].message.content || '')
   }
   const [text, setText] = useState('')
 
@@ -37,6 +37,7 @@ const HomePage = () => {
     <div>
       <h1>IMAGINE</h1>
       <input type='text' value={text} onChange={e => setText(e.target.value)}/>
+      {response}
       <button onClick={handlePrintPrompt}>Print</button>
     </div>
   );
