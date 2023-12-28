@@ -6,6 +6,7 @@ import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import i18N from "@strapi/plugin-i18n/strapi-admin";
 import strapiCloud from "@strapi/plugin-cloud/strapi-admin";
 import imagine from "../../src/plugins/imagine/strapi-admin";
+import strapiWithChatgpt from "../../src/plugins/strapi-with-chatgpt/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
@@ -14,5 +15,6 @@ renderAdmin(document.getElementById("strapi"), {
     i18n: i18N,
     "strapi-cloud": strapiCloud,
     imagine: imagine,
+    "strapi-with-chatgpt": strapiWithChatgpt,
   },
 });

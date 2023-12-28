@@ -8,13 +8,14 @@ import React, { useState } from 'react';
 import pluginId from '../../pluginId';
 // import { propmt } from '../../services/api';
 import OpenAI from "openai";
+import Input from '../../components/Input';
 
 const HomePage = () => {
   const [response, setResponse] = useState('')
 
 
   const openai = new OpenAI({
-    apiKey: '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',
+    apiKey: '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',
     dangerouslyAllowBrowser: true
   });
 
@@ -37,7 +38,7 @@ const HomePage = () => {
     <div>
       <h1>IMAGINE</h1>
       <input type='text' value={text} onChange={e => setText(e.target.value)}/>
-      {response}
+      <Input />
       <button onClick={handlePrintPrompt}>Print</button>
     </div>
   );

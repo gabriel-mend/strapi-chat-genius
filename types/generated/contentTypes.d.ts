@@ -375,7 +375,6 @@ export interface ApiPostPost extends Schema.SingleType {
   };
   attributes: {
     teste: Attribute.String;
-    GPT: Attribute.Text & Attribute.CustomField<'plugin::imagine.imagine'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
