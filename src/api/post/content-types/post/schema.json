@@ -15,10 +15,6 @@
     "teste": {
       "type": "string"
     },
-    "GPT": {
-      "type": "customField",
-      "customField": "plugin::imagine.imagine"
-    },
     "asdfasdf": {
       "type": "customField",
       "customField": "plugin::strapi-with-chatgpt.strapi-with-chatgpt"
