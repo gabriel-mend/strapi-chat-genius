@@ -5,9 +5,10 @@
  */
 
 import React from 'react';
-import { Flex, TextInput, Button, Loader } from '@strapi/design-system';
+import { Loader, Flex, IconButton } from '@strapi/design-system';
 import OpenAI from 'openai';
 import * as S from './styles';
+import { File } from '@strapi/icons';
 
 const Input = () => {
   const [result, setResult] = React.useState('')
@@ -57,6 +58,9 @@ const Input = () => {
         value={content}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setContent(e.target.value)}
       />
+      <Flex>
+        <IconButton label="Copiar texto" icon={<File />} onClick={() => navigator.clipboard.writeText(result)} />
+      </Flex>
       <S.ResultBox>
         {!loading ? result : <Loader small>Loading content...</Loader>}
       </S.ResultBox>
