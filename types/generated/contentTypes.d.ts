@@ -375,6 +375,9 @@ export interface ApiPostPost extends Schema.SingleType {
   };
   attributes: {
     teste: Attribute.String;
+    GPT: Attribute.Text & Attribute.CustomField<'plugin::imagine.imagine'>;
+    asdfasdf: Attribute.Text &
+      Attribute.CustomField<'plugin::strapi-with-chatgpt.strapi-with-chatgpt'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

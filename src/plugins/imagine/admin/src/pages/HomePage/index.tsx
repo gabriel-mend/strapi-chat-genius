@@ -15,7 +15,7 @@ const HomePage = () => {
 
 
   const openai = new OpenAI({
-    apiKey: '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',
+    apiKey: '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',
     dangerouslyAllowBrowser: true
   });
 
@@ -38,7 +38,7 @@ const HomePage = () => {
     <div>
       <h1>IMAGINE</h1>
       <input type='text' value={text} onChange={e => setText(e.target.value)}/>
-      <Input />
+      {response}
       <button onClick={handlePrintPrompt}>Print</button>
     </div>
   );

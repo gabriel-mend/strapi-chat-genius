@@ -5,7 +5,7 @@ import pluginId from './pluginId';
 import Initializer from './components/Initializer';
 import PluginIcon from './components/PluginIcon';
 
-const name = 'Strapi with Chatgpt'
+const name = pluginPkg.strapi.name;
 
 export default {
   register(app: any) {
@@ -25,16 +25,16 @@ export default {
     });
 
     app.customFields.register({
-      name: "chatgpt-field",
-      pluginId: "chatgpt-field",
-      plugin: "chatgpt-field",  // the custom field is created by a color-picker plugin
+      name: "strapi-with-chatgpt",
+      pluginId: "strapi-with-chatgpt",
+      plugin: "strapi-with-chatgpt",  // the custom field is created by a color-picker plugin
       type: "string",
       intlLabel: {
-        id: `Chatgpt field`,
+        id: `${pluginId}.plugin.name`,
         defaultMessage: name,
       },
       intlDescription: {
-        id: "chatgpt-field.description",
+        id: "strapi-with-chatgpt.description",
         defaultMessage: "Facilite a criação de conteúdo",
       },
       icon: PluginIcon,

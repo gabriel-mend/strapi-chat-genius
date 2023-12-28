@@ -2,13 +2,13 @@ import { Strapi } from '@strapi/strapi';
 
 export default ({ strapi }: { strapi: Strapi }) => {
   strapi.customFields.register({
-    name: "chatgpt-field",
-    plugin: "chatgpt-field",
+    name: "strapi-with-chatgpt",
+    plugin: "strapi-with-chatgpt",
     type: "text",
     inputSize: {
       // optional
-      default: 4,
-      isResizable: true,
+      default: 12,
+      isResizable: false,
     },
   });
 };
