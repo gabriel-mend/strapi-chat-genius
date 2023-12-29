@@ -13,8 +13,12 @@ import {
   Link, Flex,
   Button,
 } from '@strapi/design-system';
+import { useIntl } from 'react-intl';
+import getTrad from '../../utils/getTrad';
 
 const HomePage = () => {
+  const { formatMessage } = useIntl();
+
   const [apiKey, setApiKey] = React.useState('')
 
   function handleAddApikey() {
@@ -35,22 +39,39 @@ const HomePage = () => {
   return (
     <Layout sidenav>
       <BaseHeaderLayout
-        title="Strapi with gpt"
-        subtitle="Facilite a criação de conteúdo com IA."
+        title={formatMessage({
+          id: getTrad("Homepage.BaseHeaderLayout.title"),
+          defaultMessage: 'Strapi with chatgpt'
+        })}
+        subtitle={formatMessage({
+          id: getTrad("Homepage.BaseHeaderLayout.subtitle"),
+          defaultMessage: 'Make content creation easier with AI.'
+        })}
       />
       <ContentLayout>
         <Flex direction="column" alignItems="flex-start" gap="5">
           <Flex alignItems="flex-end" gap="3">
             <TextInput
               label="Api key"
-              placeholder="Adicione a sua api da openai"
+              placeholder={formatMessage({
+                id: getTrad("Homepage.Input.placeholder"),
+                defaultMessage: 'Add your openai apikey'
+              })}
               value={apiKey}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setApiKey(e?.target.value)}
             />
-            <Button size="M" onClick={handleAddApikey}>Teste</Button>
+            <Button size="M" onClick={handleAddApikey}>
+              {formatMessage({
+                id: getTrad("Homepage.Button.text"),
+                defaultMessage: 'Save'
+              })}
+            </Button>
           </Flex>
           <Link isExternal href="https://platform.openai.com/api-keys">
-            Onde posso encontrar a api key?
+            {formatMessage({
+              id: getTrad("Homepage.link"),
+              defaultMessage: 'Where can I find the api key?'
+            })}
           </Link>
         </Flex>
       </ContentLayout>

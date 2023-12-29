@@ -1,0 +1,17 @@
+{
+  "Homepage.BaseHeaderLayout.title": "Strapi com chatgpt",
+  "Homepage.BaseHeaderLayout.subtitle": "Facilite a criação de conteúdo com IA.",
+  "Homepage.Input.placeholder": "Adicione a sua apikey da openai",
+  "Homepage.Button.text": "Salvar",
+  "Homepage.link": "Onde posso encontrar a apikey?",
+
+  "Component.Input.label": "Como posso ajudar?",
+  "Component.Input.placeholder": "Crie um texto para ...",
+  "Component.Input.Button.text": "Gerar conteúdo",
+
+  "Component.Input.IconButton.Copy": "Copiar conteúdo",
+  "Component.Input.IconButton.Reduce": "Reduzir o conteúdo",
+  "Component.Input.IconButton.Reset": "Gerar novamente o conteúdo",
+
+  "Component.Input.Function.Reduce": "Reduza esse conteúdo com menos quantidade de linhas."
+}

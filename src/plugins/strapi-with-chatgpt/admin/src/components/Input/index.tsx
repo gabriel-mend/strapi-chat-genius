@@ -12,8 +12,12 @@ import { File } from '@strapi/icons';
 import SvgCollapse from '@strapi/icons/Collapse.js';
 import SvgRefresh from '@strapi/icons/Refresh.js';
 import { Write } from '@strapi/icons';
+import { useIntl } from 'react-intl';
+import getTrad from '../../utils/getTrad';
 
-const Input = () => {
+
+const Input =  React.forwardRef(() => {
+  const { formatMessage } = useIntl();
   const [result, setResult] = React.useState('')
   const [apiKey, setApiKey] = React.useState('')
   const [content, setContent] = React.useState('')
@@ -47,7 +51,12 @@ const Input = () => {
 
   async function handlePromptReduceContent() {
     setIsLoading(true)
-    const prompt = await propmtContent(result.concat(" Reduza esse conteúdo com menos quantidade de linhas."))
+    const reduceText = formatMessage({
+      id: getTrad("Component.Input.Function.Reduce"),
+      defaultMessage: ' Reduce this content with fewer lines.'
+    })
+    console.log(reduceText)
+    const prompt = await propmtContent(result.concat(reduceText as string))
     setIsLoading(false)
     setResult(prompt as string)
   }
@@ -65,8 +74,14 @@ const Input = () => {
   return (
     <S.Container alignItems="flex-end" gap="3" direction="column">
       <S.Input
-        label="Como posso ajudar?"
-        placeholder="Crie um texto para ..."
+        label={formatMessage({
+          id: getTrad("Component.Input.label"),
+          defaultMessage: 'How can I help you?'
+        })}
+        placeholder={formatMessage({
+          id: getTrad("Component.Input.placeholder"),
+          defaultMessage: 'Create text for ...'
+        })}
         value={content}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setContent(e.target.value)}
         error={error !== "" ? error : false}
@@ -74,17 +89,26 @@ const Input = () => {
       {result && (
         <Flex gap={3}>
           <IconButton
-            label="Copiar texto"
+            label={formatMessage({
+              id: getTrad("Component.Input.IconButton.Copy"),
+              defaultMessage: 'Copy content'
+            })}
             icon={<File />}
             onClick={handleCopyContent}
           />
           <IconButton
-            label="Reduzir texto"
+            label={formatMessage({
+              id: getTrad("Component.Input.IconButton.Reduce"),
+              defaultMessage: 'Reduce content'
+            })}
             icon={<SvgCollapse />}
             onClick={handlePromptReduceContent}
           />
           <IconButton
-            label="Gerar novamente o conteúdo"
+            label={formatMessage({
+              id: getTrad("Component.Input.IconButton.Reset"),
+              defaultMessage: 'Regenerate content'
+            })}
             icon={<SvgRefresh />}
             onClick={handlePromptContent}
           />
@@ -93,9 +117,14 @@ const Input = () => {
       <S.ResultBox>
         {!isLoading ? result : <Loader small>Loading content...</Loader>}
       </S.ResultBox>
-      <S.ButtonFull onClick={handlePromptContent} size="M" endIcon={<Write />}>Gerar conteúdo</S.ButtonFull>
+      <S.ButtonFull onClick={handlePromptContent} size="M" endIcon={<Write />}>
+        {formatMessage({
+          id: getTrad("Component.Input.Button.text"),
+          defaultMessage: 'Generate content'
+        })}
+      </S.ButtonFull>
     </S.Container>
   )
-};
+});
 
 export default Input;
