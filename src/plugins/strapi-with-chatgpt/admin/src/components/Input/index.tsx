@@ -9,12 +9,16 @@ import { Loader, Flex, IconButton } from '@strapi/design-system';
 import OpenAI from 'openai';
 import * as S from './styles';
 import { File } from '@strapi/icons';
+import SvgCollapse from '@strapi/icons/Collapse.js';
+import SvgRefresh from '@strapi/icons/Refresh.js';
+import { Write } from '@strapi/icons';
 
 const Input = () => {
   const [result, setResult] = React.useState('')
   const [apiKey, setApiKey] = React.useState('')
   const [content, setContent] = React.useState('')
-  const [loading, setLoading] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false)
+  const [error, setError] = React.useState('')
 
   const openai = new OpenAI({
     apiKey,
@@ -27,21 +31,29 @@ const Input = () => {
         messages: [{ role: "system", content }],
         model: "gpt-3.5-turbo",
       });
-
-
+      setError('')
       return completion.choices[0].message.content
-    } catch (e) {
-      console.log(e)
+    } catch (e: any) {
+      setError(e.error.message as string)
     }
   }
 
-
   async function handlePromptContent() {
-    setLoading(true)
-    const result = await propmtContent(content)
-    setLoading(false)
-    setResult(result as string)
-    console.log(result)
+    setIsLoading(true)
+    const prompt = await propmtContent(content)
+    setIsLoading(false)
+    setResult(prompt as string)
+  }
+
+  async function handlePromptReduceContent() {
+    setIsLoading(true)
+    const prompt = await propmtContent(result.concat(" Reduza esse conteúdo com menos quantidade de linhas."))
+    setIsLoading(false)
+    setResult(prompt as string)
+  }
+
+  function handleCopyContent() {
+    navigator.clipboard.writeText(result)
   }
 
   React.useEffect(() => {
@@ -57,14 +69,31 @@ const Input = () => {
         placeholder="Crie um texto para ..."
         value={content}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setContent(e.target.value)}
+        error={error !== "" ? error : false}
       />
-      <Flex>
-        <IconButton label="Copiar texto" icon={<File />} onClick={() => navigator.clipboard.writeText(result)} />
-      </Flex>
+      {result && (
+        <Flex gap={3}>
+          <IconButton
+            label="Copiar texto"
+            icon={<File />}
+            onClick={handleCopyContent}
+          />
+          <IconButton
+            label="Reduzir texto"
+            icon={<SvgCollapse />}
+            onClick={handlePromptReduceContent}
+          />
+          <IconButton
+            label="Gerar novamente o conteúdo"
+            icon={<SvgRefresh />}
+            onClick={handlePromptContent}
+          />
+        </Flex>
+      )}
       <S.ResultBox>
-        {!loading ? result : <Loader small>Loading content...</Loader>}
+        {!isLoading ? result : <Loader small>Loading content...</Loader>}
       </S.ResultBox>
-      <S.ButtonFull onClick={handlePromptContent} size="M">Gerar conteúdo</S.ButtonFull>
+      <S.ButtonFull onClick={handlePromptContent} size="M" endIcon={<Write />}>Gerar conteúdo</S.ButtonFull>
     </S.Container>
   )
 };

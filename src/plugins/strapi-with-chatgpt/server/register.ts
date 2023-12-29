@@ -6,7 +6,6 @@ export default ({ strapi }: { strapi: Strapi }) => {
     plugin: "strapi-with-chatgpt",
     type: "text",
     inputSize: {
-      // optional
       default: 12,
       isResizable: false,
     },

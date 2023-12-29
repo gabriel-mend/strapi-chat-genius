@@ -362,20 +362,21 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiPostPost extends Schema.SingleType {
+export interface ApiPostPost extends Schema.CollectionType {
   collectionName: 'posts';
   info: {
     singularName: 'post';
     pluralName: 'posts';
-    displayName: 'post';
+    displayName: 'Post';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    teste: Attribute.String;
-    asdfasdf: Attribute.Text &
+    name: Attribute.String;
+    content: Attribute.Blocks;
+    gpt: Attribute.Text &
       Attribute.CustomField<'plugin::strapi-with-chatgpt.strapi-with-chatgpt'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

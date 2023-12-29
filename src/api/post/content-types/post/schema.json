@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "posts",
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "post",
+    "displayName": "Post",
     "description": ""
   },
   "options": {
@@ -12,10 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "teste": {
+    "name": {
       "type": "string"
     },
-    "asdfasdf": {
+    "content": {
+      "type": "blocks"
+    },
+    "gpt": {
       "type": "customField",
       "customField": "plugin::strapi-with-chatgpt.strapi-with-chatgpt"
     }
