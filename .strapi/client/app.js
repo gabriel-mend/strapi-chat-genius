@@ -8,7 +8,10 @@ import strapiCloud from "@strapi/plugin-cloud/strapi-admin";
 import strapiWithChatgpt from "../../src/plugins/strapi-with-chatgpt/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
+import customisations from "../../src/admin/app.ts";
+
 renderAdmin(document.getElementById("strapi"), {
+  customisations,
   plugins: {
     "users-permissions": usersPermissions,
     i18n: i18N,
