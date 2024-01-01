@@ -6,6 +6,14 @@
     "pluralName": "settings-content-types",
     "displayName": "Settings content type"
   },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": true
+    },
+    "content-type-builder": {
+      "visible": true
+    }
+  },
   "options": {
     "draftAndPublish": false,
     "comment": ""

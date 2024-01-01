@@ -2,7 +2,15 @@ export default [
   {
     method: 'GET',
     path: '/',
-    handler: 'myController.index',
+    handler: 'myController.list',
+    config: {
+      policies: [],
+    }
+  },
+  {
+    method: 'POST',
+    path: '/',
+    handler: 'myController.create',
     config: {
       policies: [],
     },

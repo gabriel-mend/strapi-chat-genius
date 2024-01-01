@@ -15,6 +15,7 @@ import {
 } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 import getTrad from '../../utils/getTrad';
+import api from '../../api/api';
 
 const HomePage = () => {
   const { formatMessage } = useIntl();
@@ -26,13 +27,14 @@ const HomePage = () => {
       alert("Preencha o campo de api key!")
       return
     }
-    localStorage.setItem('openai-key', apiKey)
+    api.postKey(apiKey)
   }
 
   React.useEffect(() => {
     if(!apiKey) {
-     const local = localStorage.getItem('openai-key')
-     setApiKey(local as string);
+     api.getKey().then(({ data }) => {
+      setApiKey(data?.key as string);
+     })
     }
   }, [])
 

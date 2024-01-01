@@ -508,6 +508,45 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginStrapiWithChatgptSettingsContentType
+  extends Schema.SingleType {
+  collectionName: 'settings_content_types';
+  info: {
+    singularName: 'settings-content-type';
+    pluralName: 'settings-content-types';
+    displayName: 'Settings content type';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: true;
+    };
+    'content-type-builder': {
+      visible: true;
+    };
+  };
+  attributes: {
+    key: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::strapi-with-chatgpt.settings-content-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::strapi-with-chatgpt.settings-content-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -716,6 +755,7 @@ declare module '@strapi/types' {
       'api::post.post': ApiPostPost;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::strapi-with-chatgpt.settings-content-type': PluginStrapiWithChatgptSettingsContentType;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
