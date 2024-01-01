@@ -5,7 +5,7 @@ export default [
     handler: 'myController.list',
     config: {
       policies: [],
-    },
+    }
   },
   {
     method: 'POST',
