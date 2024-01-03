@@ -9,25 +9,10 @@ const name = pluginPkg.strapi.name;
 
 export default {
   register(app: any) {
-    app.addMenuLink({
-      to: `/plugins/${pluginId}`,
-      icon: PluginIcon,
-      intlLabel: {
-        id: `Strapi with chatgpt`,
-        defaultMessage: name,
-      },
-      Component: async () => {
-        const component = await import('./pages/App');
-
-        return component;
-      },
-      permissions: [],
-    });
-
     app.customFields.register({
       name: "strapi-with-chatgpt",
       pluginId: "strapi-with-chatgpt",
-      plugin: "strapi-with-chatgpt",  // the custom field is created by a color-picker plugin
+      plugin: "strapi-with-chatgpt",
       type: "string",
       intlLabel: {
         id: `${pluginId}.plugin.name`,
@@ -41,12 +26,40 @@ export default {
       components: {
         Input: async () =>
           import(
-            /* webpackChunkName: "input-component" */ "./components/Input"
+            "./components/Input"
           ),
       },
       options: {
       },
     });
+
+
+    app.createSettingSection(
+      {
+        id: pluginId,
+        intlLabel: {
+          id: `${pluginId}.plugin.name`,
+          defaultMessage: "Strapi with chatgpt"
+        },
+      },
+      [
+        {
+          intlLabel: {
+            id: `${pluginId}.plugin.name`,
+            defaultMessage: "Configuration",
+          },
+          id: "strapi-chatgpt",
+          to: `/settings/${pluginId}`,
+          Component: async () => {
+            const component = await import(
+              "./pages/HomePage"
+            );
+
+            return component;
+          },
+        },
+      ]
+    );
 
     const plugin = {
       id: pluginId,
