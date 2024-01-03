@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import OpenAI from 'openai';
 import { useIntl } from 'react-intl';
 import getTrad from '../utils/getTrad';
+import api from "../api/api";
 
 export function usePrompt () {
   const { formatMessage } = useIntl();
@@ -54,8 +55,9 @@ export function usePrompt () {
 
   useEffect(() => {
     if(!apiKey) {
-      const local = localStorage.getItem('openai-key')
-      setApiKey(local as string);
+      api.getKey().then(({ data }) => {
+        setApiKey(data?.key as string);
+       })
      }
   }, [])
 
