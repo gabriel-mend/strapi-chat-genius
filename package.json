@@ -1,6 +1,6 @@
 {
   "name": "strapi-chat-genius",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
     "name": "strapi-chat-genius",
@@ -33,11 +33,15 @@
     "styled-components": "^5.2.1"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Gabriel Mendonça Pereira <https://me-gabriel.vercel.app/>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-mend/strapi-chat-genius"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer"
+      "name": "Gabriel Mendonça Pereira <https://me-gabriel.vercel.app/>"
     }
   ],
   "engines": {
