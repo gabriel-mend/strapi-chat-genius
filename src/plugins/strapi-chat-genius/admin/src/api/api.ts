@@ -14,12 +14,12 @@ const config = {
 
 const api = {
   getKey: async () => {
-    const data = await axios.get<keyProps>(`/strapi-with-chatgpt`, config);
+    const data = await axios.get<keyProps>(`/strapi-chat-genius`, config);
     return data;
   },
 
   postKey: async (key: string) => {
-    const data = await axios.post(`/strapi-with-chatgpt`, {
+    const data = await axios.post(`/strapi-chat-genius`, {
       key
     }, config);
     return data;

@@ -1,10 +1,10 @@
 {
-  "name": "strapi-with-chatgpt",
+  "name": "strapi-chat-genius",
   "version": "0.0.0",
   "description": "This is the description of the plugin.",
   "strapi": {
-    "name": "strapi-with-chatgpt",
-    "description": "Description of strapi-with-chatgpt plugin",
+    "name": "strapi-chat-genius",
+    "description": "Description of strapi-chat-genius plugin",
     "kind": "plugin"
   },
   "dependencies": {

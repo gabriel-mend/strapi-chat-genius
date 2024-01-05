@@ -10,16 +10,16 @@ const name = pluginPkg.strapi.name;
 export default {
   register(app: any) {
     app.customFields.register({
-      name: "strapi-with-chatgpt",
-      pluginId: "strapi-with-chatgpt",
-      plugin: "strapi-with-chatgpt",
+      name: "strapi-chat-genius",
+      pluginId: "strapi-chat-genius",
+      plugin: "strapi-chat-genius",
       type: "string",
       intlLabel: {
         id: `${pluginId}.plugin.name`,
         defaultMessage: name,
       },
       intlDescription: {
-        id: "strapi-with-chatgpt.description",
+        id: "strapi-chat.description",
         defaultMessage: "Facilite a criação de conteúdo",
       },
       icon: PluginIcon,
@@ -39,7 +39,7 @@ export default {
         id: pluginId,
         intlLabel: {
           id: `${pluginId}.plugin.name`,
-          defaultMessage: "Strapi with chatgpt"
+          defaultMessage: "Strapi Chat Genius"
         },
       },
       [
@@ -48,7 +48,7 @@ export default {
             id: `${pluginId}.plugin.name`,
             defaultMessage: "Configuration",
           },
-          id: "strapi-chatgpt",
+          id: "strapi-chat-genius",
           to: `/settings/${pluginId}`,
           Component: async () => {
             const component = await import(

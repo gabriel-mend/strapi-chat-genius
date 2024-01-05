@@ -1,6 +1,6 @@
 export default {
-  'strapi-with-chatgpt': {
+  'strapi-chat-genius': {
     enabled: true,
-    resolve: './src/plugins/strapi-with-chatgpt'
+    resolve: './src/plugins/strapi-chat-genius'
   },
 }

@@ -20,7 +20,7 @@
     },
     "gpt": {
       "type": "customField",
-      "customField": "plugin::strapi-with-chatgpt.strapi-with-chatgpt"
+      "customField": "plugin::strapi-chat-genius.strapi-chat-genius"
     }
   }
 }

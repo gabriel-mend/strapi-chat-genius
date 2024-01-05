@@ -377,7 +377,7 @@ export interface ApiPostPost extends Schema.CollectionType {
     name: Attribute.String;
     content: Attribute.Blocks;
     gpt: Attribute.Text &
-      Attribute.CustomField<'plugin::strapi-with-chatgpt.strapi-with-chatgpt'>;
+      Attribute.CustomField<'plugin::strapi-chat-genius.strapi-chat-genius'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -508,7 +508,7 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
-export interface PluginStrapiWithChatgptSettingsContentType
+export interface PluginStrapiChatGeniusSettingsContentType
   extends Schema.SingleType {
   collectionName: 'settings_content_types';
   info: {
@@ -533,13 +533,13 @@ export interface PluginStrapiWithChatgptSettingsContentType
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'plugin::strapi-with-chatgpt.settings-content-type',
+      'plugin::strapi-chat-genius.settings-content-type',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'plugin::strapi-with-chatgpt.settings-content-type',
+      'plugin::strapi-chat-genius.settings-content-type',
       'oneToOne',
       'admin::user'
     > &
@@ -755,7 +755,7 @@ declare module '@strapi/types' {
       'api::post.post': ApiPostPost;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
-      'plugin::strapi-with-chatgpt.settings-content-type': PluginStrapiWithChatgptSettingsContentType;
+      'plugin::strapi-chat-genius.settings-content-type': PluginStrapiChatGeniusSettingsContentType;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
