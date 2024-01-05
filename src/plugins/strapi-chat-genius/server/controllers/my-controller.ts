@@ -13,10 +13,10 @@ export default ({ strapi }: { strapi: Strapi }) => ({
     try {
       const { key } = ctx.request.body
 
-      let { id }: any = await strapi?.entityService?.findMany('plugin::strapi-chat-genius.settings-content-type');
+      let entity: any = await strapi?.entityService?.findMany('plugin::strapi-chat-genius.settings-content-type');
 
-      if(id) {
-        await strapi?.entityService?.delete('plugin::strapi-chat-genius.settings-content-type', id);
+      if(entity?.id) {
+        await strapi?.entityService?.delete('plugin::strapi-chat-genius.settings-content-type', entity?.id);
       }
 
       let data = await strapi?.entityService?.create('plugin::strapi-chat-genius.settings-content-type', {
