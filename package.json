@@ -1,35 +1,52 @@
 {
-  "name": "cms-with-openai",
-  "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
-  "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi"
+  "name": "strapi-chat-genius",
+  "version": "0.0.0",
+  "description": "This is the description of the plugin.",
+  "strapi": {
+    "name": "strapi-chat-genius",
+    "description": "Description of strapi-chat-genius plugin",
+    "kind": "plugin"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.15.5",
-    "@strapi/plugin-users-permissions": "4.15.5",
-    "@strapi/plugin-i18n": "4.15.5",
-    "@strapi/plugin-cloud": "4.15.5",
-    "better-sqlite3": "8.6.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "styled-components": "5.3.3"
+    "@strapi/design-system": "^1.6.3",
+    "@strapi/helper-plugin": "^4.6.0",
+    "@strapi/icons": "^1.6.3",
+    "openai": "^4.24.1",
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@strapi/typescript-utils": "^4.6.0",
+    "@types/react": "^17.0.53",
+    "@types/react-dom": "^18.0.28",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.26",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4",
+    "styled-components": "^5.3.6",
+    "typescript": "5.0.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1"
   },
   "author": {
     "name": "A Strapi developer"
   },
-  "strapi": {
-    "uuid": "4876d8ae-9332-4bdb-acc8-b938311b97d1"
-  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
+  },
+  "scripts": {
+    "develop": "tsc -p tsconfig.server.json -w",
+    "build": "tsc -p tsconfig.server.json"
   },
   "license": "MIT"
 }
