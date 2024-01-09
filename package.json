@@ -1,12 +1,21 @@
 {
   "name": "strapi-chat-genius",
-  "version": "0.0.1",
-  "description": "This is the description of the plugin.",
+  "version": "0.0.2",
+  "description": "This project consists of a plugin for strapi to add the text generation field with the chatgpt api. Making content creation easier!",
   "strapi": {
     "name": "strapi-chat-genius",
-    "description": "Description of strapi-chat-genius plugin",
+    "description": "This project consists of a plugin for strapi to add the text generation field with the chatgpt api. Making content creation easier!",
     "kind": "plugin"
   },
+  "keywords": [
+    "chatgpt",
+    "openai",
+    "strapi",
+    "strapi-plugin",
+    "strapicms",
+    "strapi-cms",
+    "strapi4"
+],
   "dependencies": {
     "@strapi/design-system": "^1.6.3",
     "@strapi/helper-plugin": "^4.6.0",
