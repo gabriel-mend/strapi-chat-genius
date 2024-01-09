@@ -18,12 +18,12 @@
 <details>
   <summary>Open table</summary>
   <ol>
-    <li><a href="#about-the-project">About the project</a></li>
-    <li><a href="#requirements">Requirements</a></li>
-    <li><a href="#instalation-steps">Instalation Steps</a></li>
-    <li><a href="#configuring-plugin">Configuring plugin</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#about-me">About me</a></li>
+    <li><a href="#-about-the-project">About the project</a></li>
+    <li><a href="#-requirements">Requirements</a></li>
+    <li><a href="#-instalation-steps">Instalation Steps</a></li>
+    <li><a href="#-configuring-plugin">Configuring plugin</a></li>
+    <li><a href="#-contributing">Contributing</a></li>
+    <li><a href="#-about-me">About me</a></li>
   </ol>
 </details>
 
