@@ -1,6 +1,6 @@
 {
   "name": "strapi-chat-genius",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This project consists of a plugin for strapi to add the text generation field with the chatgpt api. Making content creation easier!",
   "strapi": {
     "name": "strapi-chat-genius",
@@ -36,21 +36,27 @@
     "typescript": "5.0.4"
   },
   "peerDependencies": {
+    "@strapi/strapi": "^4.4.0",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
   "author": {
-    "name": "Gabriel Mendonça Pereira <https://me-gabriel.vercel.app/>"
+    "name": "Gabriel Mendonça Pereira",
+    "email": "crowofcode@gmail.com",
+    "url": "https://me-gabriel.vercel.app/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabriel-mend/strapi-chat-genius"
+    "url": "https://github.com/gabriel-mend/strapi-chat-genius"
   },
   "maintainers": [
     {
-      "name": "Gabriel Mendonça Pereira <https://me-gabriel.vercel.app/>"
+      "name": "Gabriel Mendonça Pereira",
+      "email": "crowofcode@gmail.com",
+      "url": "https://me-gabriel.vercel.app/"
+
     }
   ],
   "engines": {
