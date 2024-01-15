@@ -1,6 +1,6 @@
 /*
  *
- * HomePage
+ * SettingsPage
  *
  */
 
@@ -16,18 +16,25 @@ import {
 import { useIntl } from 'react-intl';
 import getTrad from '../../utils/getTrad';
 import api from '../../api/api';
+import Alert from '../../components/Alert';
 
-const HomePage = () => {
+const SettingsPage = () => {
   const { formatMessage } = useIntl();
 
   const [apiKey, setApiKey] = React.useState('')
+  const [toggle, setToggle] = React.useState(false)
 
   function handleAddApikey() {
-    if(!apiKey) {
-      alert("Preencha o campo de api key!")
-      return
+    try {
+      if(!apiKey) {
+        alert("Preencha o campo de api key!")
+        return
+      }
+      api.postKey(apiKey)
+      setToggle(true)
+    } catch (err) {
+      console.log(err)
     }
-    api.postKey(apiKey)
   }
 
   React.useEffect(() => {
@@ -40,13 +47,17 @@ const HomePage = () => {
 
   return (
     <Layout sidenav>
+      {toggle ? <Alert toggle={toggle} setToggle={setToggle} variant='success'>{formatMessage({
+          id: getTrad("SettingsPage.Alert.success"),
+          defaultMessage: 'Strapi with chatgpt'
+        })}</Alert> : <></>}
       <BaseHeaderLayout
         title={formatMessage({
-          id: getTrad("Homepage.BaseHeaderLayout.title"),
+          id: getTrad("SettingsPage.BaseHeaderLayout.title"),
           defaultMessage: 'Strapi with chatgpt'
         })}
         subtitle={formatMessage({
-          id: getTrad("Homepage.BaseHeaderLayout.subtitle"),
+          id: getTrad("SettingsPage.BaseHeaderLayout.subtitle"),
           defaultMessage: 'Make content creation easier with AI.'
         })}
       />
@@ -56,7 +67,7 @@ const HomePage = () => {
             <TextInput
               label="Api key"
               placeholder={formatMessage({
-                id: getTrad("Homepage.Input.placeholder"),
+                id: getTrad("SettingsPage.Input.placeholder"),
                 defaultMessage: 'Add your openai apikey'
               })}
               value={apiKey}
@@ -64,14 +75,14 @@ const HomePage = () => {
             />
             <Button size="M" onClick={handleAddApikey}>
               {formatMessage({
-                id: getTrad("Homepage.Button.text"),
+                id: getTrad("SettingsPage.Button.text"),
                 defaultMessage: 'Save'
               })}
             </Button>
           </Flex>
           <Link isExternal href="https://platform.openai.com/api-keys">
             {formatMessage({
-              id: getTrad("Homepage.link"),
+              id: getTrad("SettingsPage.link"),
               defaultMessage: 'Where can I find the api key?'
             })}
           </Link>
@@ -81,4 +92,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default SettingsPage;

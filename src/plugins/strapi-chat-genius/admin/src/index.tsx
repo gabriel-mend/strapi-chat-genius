@@ -20,7 +20,7 @@ export default {
       },
       intlDescription: {
         id: "strapi-chat.description",
-        defaultMessage: "Facilite a criação de conteúdo",
+        defaultMessage: "Make content creation easier!",
       },
       icon: PluginIcon,
       components: {
@@ -52,7 +52,7 @@ export default {
           to: `/settings/${pluginId}`,
           Component: async () => {
             const component = await import(
-              "./pages/HomePage"
+              "./pages/SettingsPage"
             );
 
             return component;

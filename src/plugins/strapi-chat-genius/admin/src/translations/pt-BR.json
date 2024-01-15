@@ -1,9 +1,10 @@
 {
-  "Homepage.BaseHeaderLayout.title": "Strapi com chatgpt",
-  "Homepage.BaseHeaderLayout.subtitle": "Facilite a criação de conteúdo com IA.",
-  "Homepage.Input.placeholder": "Adicione a sua apikey da openai",
-  "Homepage.Button.text": "Salvar",
-  "Homepage.link": "Onde posso encontrar a apikey?",
+  "SettingsPage.BaseHeaderLayout.title": "Strapi com chatgpt",
+  "SettingsPage.BaseHeaderLayout.subtitle": "Facilite a criação de conteúdo com IA.",
+  "SettingsPage.Input.placeholder": "Adicione a sua apikey da openai",
+  "SettingsPage.Button.text": "Salvar",
+  "SettingsPage.link": "Onde posso encontrar a apikey?",
+  "SettingsPage.Alert.success": "Salvo com sucesso!",
 
   "Component.Input.label": "Como posso ajudar?",
   "Component.Input.placeholder": "Crie um texto para ...",
