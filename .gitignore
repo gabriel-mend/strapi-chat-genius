@@ -106,6 +106,7 @@ coverage
 ############################
 
 .env
+dist
 license.txt
 exports
 *.cache
